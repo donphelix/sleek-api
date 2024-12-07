@@ -3,10 +3,11 @@
 namespace App;
 
 use App\Models\Property;
+use Illuminate\Database\Eloquent\Collection;
 
 interface PropertyRepositoryInterface
 {
-    public function all(): array;
+    public function all();
 
     public function create(array $data): Property;
 

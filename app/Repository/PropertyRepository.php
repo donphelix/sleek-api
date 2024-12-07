@@ -4,12 +4,13 @@ namespace App\Repository;
 
 use App\Models\Property;
 use App\PropertyRepositoryInterface;
+use Illuminate\Database\Eloquent\Collection;
 
 class PropertyRepository implements PropertyRepositoryInterface
 {
-    public function all(): array
+    public function all(int $perPage = 15)
     {
-        return Property::all()->toArray();
+        return Property::paginate($perPage);
     }
 
     public function create(array $data): Property
